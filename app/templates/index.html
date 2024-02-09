@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>HOME</title>
+    <title>Seminaire</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -60,23 +60,30 @@
                 <div class="container">
 
                     <div class="header-wrap">
-                        <!-- Header Logo Start -->
-                        <div class="header-logo">
-                            <a href="/"><img src="assets/images/logo-4.png" alt="Logo"></a>
-                        </div>
-                        <!-- Header Logo End -->
 
                         <!-- Header Navigation Start -->
                         <div class="header-navigation d-none d-lg-block">
                             <ul class="main-menu">
-                                <li class="active-menu"><a href="{% url 'home' %}">Home</a>
+                                <li class="active-menu"><a href="{% url 'home' %}">Accueil</a>
                                 </li>
-                                <li><a href="{% url 'faq' %}">FAQ's</a></li>
+                                <li><a href="{% url 'register' %}">Inscription</a></li>
+
+                               <li><!-- template.html -->
+                                <a href="{% url 'mon-pdf' %}" target="_blank">Seminaires</a>
+                                </li>
+
+                                <li><a href="{% url 'faq' %}">FAQ</a></li>
                                 <li><a href="{% url 'contact' %}">Contact</a></li>
                             </ul>
                         </div>
                         <!-- Header Navigation End -->
-
+                        {% for message in messages %}
+                            <div style=" position: absolute; bottom: 15px; top: 0; left: 0;"  data-aos-delay="900" data-aos="fade-down"
+                                class="alert {{ message.tags }} alert-dismissible alert-label-icon rounded-label fade show" role="alert">
+                                <i class="ri-notification-off-line label-icon"></i><strong>{{ message.tags }}</strong> - {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
                         <!-- Header Meta Start -->
                         <div class="header-meta">
 
@@ -126,9 +133,9 @@
                                 <h3 class="date">29</h3>
                                 <span class="year">October <br> 2024</span>
                             </div>
-                            <span class="place" data-aos-delay="800" data-aos="fade-up"> Brazzaville, Libreville, Kinshasa, Pointe noire et Port Gentil</span>
+                            <span class="place" data-aos-delay="800" data-aos="fade-up" style="font-size: small;">Abidjan, Brazzaville, Libreville, Kinshasa, Pointe noire, Port Gentil, Cotonou, Dakar et Antananarive</span>
                             <h4 class="title" data-aos-delay="900" data-aos="fade-up" style="font-size: 250%;">SEMINAIRES DE FORMATION SUR LE MANAGEMENT PUBLIC ET PRIVE</h4>
-                            
+
                         </div>
                         <!-- Hero Content End -->
                     </div>
@@ -137,47 +144,16 @@
                         <div class="hero-form" data-aos-delay="900" data-aos="fade-up">
                             <div class="hero-form-wrap">
                                 <div class="heading-wrap text-center">
-                                    <h3 class="title">S'enregistrer</h3>
+                                    <h3 class="title">Présentation</h3>
                                 </div>
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <input type="text" placeholder="Name">
-                                            </div>
-                                            <!-- Single Form End -->
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <input type="email" placeholder="Email">
-                                            </div>
-                                            <!-- Single Form End -->
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <input type="text" placeholder="Phone">
-                                            </div>
-                                            <!-- Single Form End -->
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <!-- Single Form Start -->
-                                            <div class="single-form">
-                                                <textarea placeholder="Message"></textarea>
-                                            </div>
-                                            <!-- Single Form End -->
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <!-- Single Form Start -->
-                                            <div class="form-btn">
-                                                <button class="btn-2" type="submit">Submit Registration</button>
-                                            </div>
-                                            <!-- Single Form End -->
-                                        </div>
-                                    </div>
-                                </form>
+                                <p style="color: aliceblue;">
+                                    Dans le cadre d’un accord de travail, le CACSUP relai le programme des séminaires de CAMPC, un centre expérimenté de perfectionnement en management public et privé basé à Abidjan en Côte d’ivoire. Ces séminaires de formation sont ouverts à tous (administrations publiques, collectivités locales, parlements, entreprises privées etc). Et sont réalisés aux dates et dans les lieux indiqués sur le Catalogue des séminaires ‘catalogue’ du CACSUP, reprenant pour l’essentiel les séminaires de CAMPC pour 2024, dans la limite des places disponibles.
+Ces séminaires sont des programmes de formation qualifiante de courte durée (3, 5, 10 ou 15 jours) réalisés suivant le catalogue CAMPC à Abidjan. Pour 2024 le CACSUP a dupliqué un nombre de formation dans d’autres villes africaines, toujours sous la responsabilité pédagogique de CAMPC ; ce sera à: Brazzaville, Libreville, Kinshasa, Pointe noire, Port Gentil, Cotonou, Dakar et Antananarive.
+                                </p>
+                                <div class="form-btn">
+
+                                                        <a class="btn-2 text-center"  href="{% url 'telecharger_pdf' %}" target="_blank">Telecharger le catalogue</a>
+                                                    </div>
                             </div>
                         </div>
                         <!-- Hero Form End -->
@@ -243,16 +219,16 @@
                         <!-- About Images Start -->
                         <div class="meeta-about-counter-wrap">
                             <div class="single-about-counter text-center">
-                                <span class="value">20</span>
-                                <p class="text">Speakers</p>
+                                <span class="value"></span>
+                                <p class="text"></p>
                             </div>
                             <div class="single-about-counter text-center">
-                                <span class="value">05</span>
-                                <p class="text">Workshop</p>
+                                <span class="value"></span>
+                                <p class="text"></p>
                             </div>
                             <div class="single-about-counter text-center">
-                                <span class="value">1140</span>
-                                <p class="text">Attendance</p>
+                                <span class="value"></span>
+                                <p class="text"></p>
                             </div>
                         </div>
                         <!-- About Images End -->
@@ -267,15 +243,6 @@
                             <!-- Section Title End -->
 
                             <!-- About Content Start -->
-                            <div class="meeta-about-content-4">
-
-                                <p>Dans le cadre d’un accord de travail le CACSUP relai le programme des séminaires de CAMPC, un centre expérimenté de perfectionnement en management public basé à Abidjan en Côte d’ivoire. Ces séminaires de formation sont ouverts à tous (administrations publiques, collectivités locales, parlements, entreprises privées etc.), et sont réalisés aux dates et dans les lieux indiqués sur le Catalogue des séminaires ‘catalogue’ du CACSUP, reprenant pour l’essentiel les séminaires de CAMPC pour 2024, dans la limite des places disponibles.
-                                </p>
-
-                                <p>Ces séminaires sont des programmes de formation qualifiante de courte durée (3, 5, 10 ou 15 jours) réalisés suivant le catalogue CAMPC à Abidjan. Pour 2024 le CACSUP a dupliqué un nombre de formation dans d’autres villes africaines, toujours sous la responsabilité pédagogique de CAMPC ; ce sera à: Brazzaville, Libreville, Kinshasa, Pointe noire et Port Gentil.
-                                </p>
-
-                            </div>
                             <!-- About Content End -->
                         </div>
 
@@ -286,150 +253,12 @@
         </div>
         <!-- About Section End -->
         <!-- Speakers Start -->
-        <div class="meeta-speakers-4 section-padding">
-            <div class="meeta-speakers-wrap">
-                <!-- Section Title Start -->
-                <div class="meeta-section-title-2 section-title-4 text-center">
-                    <h4 class="sub-title">Speakers</h4>
-                    <h2 class="main-title text-white">World Class Speakers</h2>
-                </div>
-                <!-- Section Title End -->
-                <div class="meeta-speakers-content-wrap-4">
-                    <div class="row g-0">
 
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Single Speakers Start -->
-                            <div class="single-speaker-4 text-center">
-                                <div class="speaker-image">
-                                    <a href="speaker-single.html"><img src="{% static 'style/images/speaker/speaker-15.jpg' %}" alt="Speaker"></a>
-                                </div>
-                                <div class="speaker-content">
-                                    <h4 class="speaker-name"><a href="speaker-single.html">Mike Fermalin</a></h4>
-                                    <p class="speaker-designation">Lead Speaker</p>
-                                </div>
-                            </div>
-                            <!-- Single Speakers End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Single Speakers Start -->
-                            <div class="single-speaker-4 grey-bg text-center">
-                                <div class="speaker-image">
-                                    <a href="speaker-single.html"><img src="{% static 'style/images/speaker/speaker-20.jpg' %}" alt="Speaker"></a>
-                                </div>
-                                <div class="speaker-content">
-                                    <h4 class="speaker-name"><a href="speaker-single.html">Mila Kunis</a></h4>
-                                    <p class="speaker-designation">Lead Speaker</p>
-                                </div>
-                            </div>
-                            <!-- Single Speakers End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Single Speakers Start -->
-                            <div class="single-speaker-4 text-center">
-                                <div class="speaker-image">
-                                    <a href="speaker-single.html"><img src="{% static 'style/images/speaker/speaker-21.jpg' %}" alt="Speaker"></a>
-                                </div>
-                                <div class="speaker-content">
-                                    <h4 class="speaker-name"><a href="speaker-single.html">Angelina Jolie</a></h4>
-                                    <p class="speaker-designation">Founder & CEO</p>
-                                </div>
-                            </div>
-                            <!-- Single Speakers End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Single Speakers Start -->
-                            <div class="single-speaker-4 grey-bg text-center">
-                                <div class="speaker-image">
-                                    <a href="speaker-single.html"><img src="{% static 'style/images/speaker/speaker-22.jpg' %}" alt="Speaker"></a>
-                                </div>
-                                <div class="speaker-content">
-                                    <h4 class="speaker-name"><a href="speaker-single.html">Kinda Mona</a></h4>
-                                    <p class="speaker-designation">Lead Speaker</p>
-                                </div>
-                            </div>
-                            <!-- Single Speakers End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Speakers End -->
 
 
         <!-- Event Sponsors Start -->
-        <div class="meeta-event-sponsors-4 section-padding-02">
-            <div class="container">
 
-                <!-- Section Title Start -->
-                <div class="meeta-section-title-2 section-title-4 text-center">
-                    <h2 class="main-title">Event Sponsor</h2>
-                </div>
-                <!-- Section Title End -->
-
-                <!-- Sponsor Start -->
-                <div class="meeta-sponsor-wrap">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Sponsor Box Start -->
-                            <div class="meeta-sponsor-item-box sponsor-box-1">
-
-                                <div class="meeta-sponsor-logo sponsor-logo-1">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-5.png' %}" alt=""></a>
-                                </div>
-                                <div class="meeta-sponsor-logo sponsor-logo-2">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-9.png' %}" alt=""></a>
-                                </div>
-
-                            </div>
-                            <!-- Sponsor Box End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Sponsor Box Start -->
-                            <div class="meeta-sponsor-item-box sponsor-box-2">
-
-                                <div class="meeta-sponsor-logo sponsor-logo-3">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-7.png' %}" alt=""></a>
-                                </div>
-                                <div class="meeta-sponsor-logo sponsor-logo-4">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-11.png' %}" alt=""></a>
-                                </div>
-
-                            </div>
-                            <!-- Sponsor Box End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Sponsor Box Start -->
-                            <div class="meeta-sponsor-item-box sponsor-box-3">
-
-                                <div class="meeta-sponsor-logo sponsor-logo-5">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-6.png' %}" alt=""></a>
-                                </div>
-                                <div class="meeta-sponsor-logo sponsor-logo-6">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-10.png' %}" alt=""></a>
-                                </div>
-
-                            </div>
-                            <!-- Sponsor Box End -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <!-- Sponsor Box Start -->
-                            <div class="meeta-sponsor-item-box sponsor-box-4">
-                                <div class="meeta-sponsor-logo sponsor-logo-7">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-8.png' %}" alt=""></a>
-                                </div>
-                                <div class="meeta-sponsor-logo sponsor-logo-8">
-                                    <a href="#"><img src="{% static 'style/images/sponsors-12.png' %}" alt=""></a>
-                                </div>
-
-                            </div>
-                            <!-- Sponsor Box End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Sponsor End -->
-
-            </div>
-        </div>
         <!-- Event Sponsors End -->
 
 
@@ -441,21 +270,6 @@
         <!-- Footer Widget Start -->
         <div class="footer-widget text-center">
             <div class="container">
-
-                <!-- Footer Logo Start -->
-                <div class="footer-logo">
-                    <a href="index.html"><img src="assets/images/logo-4.png" alt="Logo"></a>
-                </div>
-                <!-- Footer Logo End -->
-
-                <!-- Footer widget Social Start -->
-                <div class="footer-widget-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
-                <!-- Footer widget Social End -->
 
                 <!-- Footer Copyright Start -->
                 <div class="footer-copyright">

@@ -60,18 +60,20 @@
                 <div class="container">
 
                     <div class="header-wrap">
-                        <!-- Header Logo Start -->
-                        <div class="header-logo">
-                            <a href="/"><img src="assets/images/logo-4.png" alt="Logo"></a>
-                        </div>
                         <!-- Header Logo End -->
 
                         <!-- Header Navigation Start -->
                         <div class="header-navigation d-none d-lg-block">
                             <ul class="main-menu">
-                                <li><a href="{% url 'home' %}">Home</a>
+                                <li><a href="{% url 'home' %}">Accueil</a>
                                 </li>
-                                <li><a href="{% url 'faq' %}">FAQ's</a></li>
+                                <li><a href="{% url 'register' %}">Inscription</a></li>
+
+                               <li><!-- template.html -->
+                                <a href="{% url 'mon-pdf' %}" target="_blank">Seminaires</a>
+                                </li>
+
+                                <li><a href="{% url 'faq' %}">FAQ</a></li>
                                 <li class="active-menu"><a href="{% url 'contact' %}">Contact</a></li>
                             </ul>
                         </div>
@@ -79,6 +81,7 @@
 
                         <!-- Header Meta Start -->
                         <div class="header-meta">
+
                             <!-- Header Toggle Start -->
                             <div class="header-toggle d-lg-none">
                                 <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
@@ -107,8 +110,57 @@
                             <div class="page-banner text-center">
                                 <h2 class="title">Contact Us</h2>
                                 <ul class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/">Accueil</a></li>
                                 </ul>
+                            </div>
+                            <div class="section contact-info-section">
+                                <div class="container">
+                                    <!-- Contact Info Wrap Start -->
+                                    <div class="contact-info-wrap">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-sm-6">
+                                                <!--Single Contact Info Start -->
+                                                <div class="single-contact-info text-center">
+                                                    <div class="info-icon color-2">
+                                                        <i class="flaticon-phone-call"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <h5 class="title">Telephone</h5>
+                                                        <p>+458 123 657 2324</p>
+                                                    </div>
+                                                </div>
+                                                <!--Single Contact Info End -->
+                                            </div>
+                                            <div class="col-lg-4 col-sm-6">
+                                                <!--Single Contact Info Start -->
+                                                <div class="single-contact-info text-center">
+                                                    <div class="info-icon color-1">
+                                                        <i class="flaticon-email"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <h5 class="title">Drop Your Mail</h5>
+                                                        <p>info@techmax.nl</p>
+                                                    </div>
+                                                </div>
+                                                <!--Single Contact Info End -->
+                                            </div>
+                                            <div class="col-lg-4 col-sm-6">
+                                                <!--Single Contact Info Start -->
+                                                <div class="single-contact-info text-center">
+                                                    <div class="info-icon color-3">
+                                                        <i class="flaticon-pin"></i>
+                                                    </div>
+                                                    <div class="info-content">
+                                                        <h5 class="title">Location</h5>
+                                                        <p>1800 Abbot Kinney Blvd</p>
+                                                    </div>
+                                                </div>
+                                                <!--Single Contact Info End -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Contact Info Wrap End -->
+                                </div>
                             </div>
                             <!-- Page Banner Content End -->
                         </div>
@@ -122,55 +174,7 @@
         <!-- Contact Form End -->
 
         <!-- Contact Info Start -->
-        <div class="section contact-info-section">
-            <div class="container">
-                <!-- Contact Info Wrap Start -->
-                <div class="contact-info-wrap">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <!--Single Contact Info Start -->
-                            <div class="single-contact-info text-center">
-                                <div class="info-icon color-2">
-                                    <i class="flaticon-phone-call"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h5 class="title">Telephone</h5>
-                                    <p>+458 123 657 2324</p>
-                                </div>
-                            </div>
-                            <!--Single Contact Info End -->
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <!--Single Contact Info Start -->
-                            <div class="single-contact-info text-center">
-                                <div class="info-icon color-1">
-                                    <i class="flaticon-email"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h5 class="title">Drop Your Mail</h5>
-                                    <p>info@techmax.nl</p>
-                                </div>
-                            </div>
-                            <!--Single Contact Info End -->
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <!--Single Contact Info Start -->
-                            <div class="single-contact-info text-center">
-                                <div class="info-icon color-3">
-                                    <i class="flaticon-pin"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h5 class="title">Location</h5>
-                                    <p>1800 Abbot Kinney Blvd</p>
-                                </div>
-                            </div>
-                            <!--Single Contact Info End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Contact Info Wrap End -->
-            </div>
-        </div>
+
         <!-- Contact Info End -->
 
         <!-- Contact Map Start -->
@@ -189,34 +193,6 @@
         <!-- Footer Widget Start -->
         <div class="footer-widget text-center">
             <div class="container">
-
-                <!-- Footer Logo Start -->
-                <div class="footer-logo">
-                    <a href="index.html"><img src="assets/images/footer-logo-1.png" alt="Logo"></a>
-                </div>
-                <!-- Footer Logo End -->
-
-                <!-- Footer Newsletter Start -->
-                <div class="footer-newsletter">
-                    <p>Join our mailing list to stay up to date on all things Expotin</p>
-
-                    <div class="footer-newsletter-form">
-                        <form action="#">
-                            <input type="text" placeholder="Your Email">
-                            <button class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- Footer Newsletter End -->
-
-                <!-- Footer widget Social Start -->
-                <div class="footer-widget-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                    <a href="#"><i class="fab fa-behance"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
                 <!-- Footer widget Social End -->
 
                 <!-- Footer Copyright Start -->
