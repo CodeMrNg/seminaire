@@ -83,7 +83,36 @@
                             </ul>
                         </div>
                         <!-- Header Navigation End -->
+ 
+        <!-- Offcanvas Start-->
+        <div class="offcanvas offcanvas-start" id="offcanvasExample">
+            <div class="offcanvas-header">
+                <!-- Offcanvas Logo Start -->
+                
+                <!-- Offcanvas Logo End -->
+                <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
+            </div>
 
+            <!-- Offcanvas Body Start -->
+            <div class="offcanvas-body">
+                <div class="offcanvas-menu offcanvas-menu-2">
+                   <ul class="main-menu">
+                                <li><a href="{% url 'home' %}">Accueil</a>
+                                </li>
+                                <li><a href="{% url 'register' %}">Inscription</a></li>
+
+                                <li><!-- template.html -->
+                                    <a href="{% url 'mon-pdf' %}" target="_blank">Seminaires</a>
+                                </li>
+
+                                <li class="active-menu"><a href="{% url 'faq' %}">FAQ</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                </div>
+            </div>
+            <!-- Offcanvas Body End -->
+        </div>
+        <!-- Offcanvas End -->
                         <!-- Header Meta Start -->
                         <div class="header-meta">
 
@@ -120,11 +149,12 @@
                             <div class="page-banner text-center">
                                 <h2 class="title">Questions fréquemment posées</h2>
                                 <ul class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/">Accueil</a></li>
 
                                 </ul>
                             </div>
         <!-- Faq Start -->
+        
         <div class="meeta-faq-section section-padding">
             <div class="container">
                 <div class="meeta-faq-wrapper">

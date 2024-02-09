@@ -87,7 +87,6 @@
                         <!-- Header Meta Start -->
                         <div class="header-meta">
 
-
                             <!-- Header Toggle Start -->
                             <div class="header-toggle d-lg-none">
                                 <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
@@ -114,7 +113,34 @@
 
         <!-- Mini Cart End -->
 
+        <div class="offcanvas offcanvas-start" id="offcanvasExample">
+            <div class="offcanvas-header">
+                <!-- Offcanvas Logo Start -->
+                
+                <!-- Offcanvas Logo End -->
+                <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
+            </div>
 
+            <!-- Offcanvas Body Start -->
+            <div class="offcanvas-body">
+                <div class="offcanvas-menu offcanvas-menu-2">
+                   <ul class="main-menu">
+                                <li><a href="{% url 'home' %}">Accueil</a>
+                                </li>
+                                <li><a href="{% url 'register' %}">Inscription</a></li>
+
+                                <li><!-- template.html -->
+                                    <a href="{% url 'mon-pdf' %}" target="_blank">Seminaires</a>
+                                </li>
+
+                                <li class="active-menu"><a href="{% url 'faq' %}">FAQ</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                </div>
+            </div>
+            <!-- Offcanvas Body End -->
+        </div>
+    <!-- Offcanvas End -->
         <!-- Offcanvas Start-->
 
         <!-- Offcanvas End -->
